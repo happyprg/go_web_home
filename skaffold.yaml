@@ -3,6 +3,8 @@ kind: Config
 metadata:
   name: go-web-home
 build:
+  local:
+    push: true
   artifacts:
     - image: hongsgo/gowebhome
 deploy:

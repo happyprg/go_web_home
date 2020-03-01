@@ -3,25 +3,25 @@ kind: Service
 metadata:
   annotations:
     kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"run":"go-web-home"},"name":"go-web-home","namespace":"default","selfLink":"/api/v1/namespaces/default/services/go-web-home"},"spec":{"ports":[{"port":1323,"protocol":"TCP","targetPort":1323}],"selector":{"run":"go-web-home"},"sessionAffinity":"None","type":"NodePort"},"status":{"loadBalancer":{}}}
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"run":"gowebhome"},"name":"gowebhome","namespace":"default","selfLink":"/api/v1/namespaces/default/services/gowebhome"},"spec":{"ports":[{"port":1323,"protocol":"TCP","targetPort":1323}],"selector":{"run":"gowebhome"},"sessionAffinity":"None","type":"NodePort"},"status":{"loadBalancer":{}}}
   creationTimestamp: "2020-03-01T04:49:34Z"
   labels:
-    run: go-web-home
-  name: go-web-home
+    run: gowebhome
+  name: gowebhome
   namespace: default
   resourceVersion: "5691"
-  selfLink: /api/v1/namespaces/default/services/go-web-home
+  selfLink: /api/v1/namespaces/default/services/gowebhome
   uid: 983ab503-5f98-4933-9f40-f9b918dbf1c7
 spec:
   clusterIP: 10.108.134.188
   externalTrafficPolicy: Cluster
   ports:
-  - nodePort: 30440
-    port: 1323
-    protocol: TCP
-    targetPort: 1323
+    - nodePort: 30440
+      port: 1323
+      protocol: TCP
+      targetPort: 1323
   selector:
-    run: go-web-home
+    run: gowebhome
   sessionAffinity: None
   type: NodePort
 status:
