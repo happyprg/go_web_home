@@ -14,7 +14,7 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 COPY --from=builder /app/main .
 COPY static ./static
-COPY template/html ./template/html
+COPY template ./template
 # Expose port 8080 to the outside world
 EXPOSE 1323
 # Command to run the executable
