@@ -29,7 +29,7 @@ jobs: # basic units of work in a run
           paths:
             - "/go/pkg/mod"
 
-      - run: main
+      - run: main &
       - run:
           name: Validate service is working
           command: |
