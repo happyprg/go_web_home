@@ -1,12 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"io"
-	"net/http"
-	"time"
 
+	"github.com/happyprg/go_web_home/handler"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -25,13 +23,9 @@ func main() {
 		templates: template.Must(template.ParseGlob("template/views/*.html")),
 	}
 	e.Renderer = t
-	e.GET("/", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "serverTime", fmt.Sprintf("%s", time.Now()))
-	})
-
-	e.GET("/health", func(c echo.Context) error {
-		return c.String(http.StatusOK, "I'm alive")
-	})
+	h := handler.Handler{}
+	e.GET("/", h.Index)
+	e.GET("/health", h.Health)
 
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
