@@ -26,11 +26,9 @@ func main() {
 	h := handler.Handler{}
 	e.GET("/", h.Index)
 	e.GET("/health", h.Health)
-
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
 	e.Static("/static", "static")
-
 	e.Logger.Fatal(e.Start(":1323"))
 }
