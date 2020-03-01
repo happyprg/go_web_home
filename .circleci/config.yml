@@ -29,15 +29,12 @@ jobs: # basic units of work in a run
           paths:
             - "/go/pkg/mod"
 
-      - run: main
+      - run: /usr/local/go/bin/main
       - run:
           name: Validate service is working
           command: |
             sleep 2
             curl --retry 10 --retry-delay 1 -XGET --header "Content-Type: application/json" http://localhost:1323/
-          paths:
-            - "/go/bin"
-
       - store_artifacts: # upload test summary for display in Artifacts
           path: /tmp/test-results
           destination: raw-test-output
