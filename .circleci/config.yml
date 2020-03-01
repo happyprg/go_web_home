@@ -23,7 +23,7 @@ jobs: # basic units of work in a run
             PACKAGE_NAMES=$(go list ./... | circleci tests split --split-by=timings --timings-type=classname)
             gotestsum --junitfile ${TEST_RESULTS}/gotestsum-report.xml -- $PACKAGE_NAMES
 
-      - run: CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+      - run: go install
       - save_cache:
           key: go-mod-v4-{{ checksum "go.sum" }}
           paths:
@@ -33,7 +33,7 @@ jobs: # basic units of work in a run
       - run:
           name: Validate service is working
           command: |
-            sleep 5
+            sleep 2
             curl --retry 10 --retry-delay 1 -XGET --header "Content-Type: application/json" http://localhost:1323/
 
       - store_artifacts: # upload test summary for display in Artifacts
