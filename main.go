@@ -3,7 +3,8 @@ package main
 import (
 	"net/http"
 
-	echo "github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
@@ -11,8 +12,14 @@ func main() {
 	e.GET("/health", func(c echo.Context) error {
 		return c.String(http.StatusOK, "I'm alive")
 	})
+
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+
+	e.Static("/static", "static")
+
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World! 2020-03-01 13:53(KST) integrated with skaffold successfully")
+		return c.String(http.StatusOK, "Hello, World! add static")
 	})
 	e.Logger.Fatal(e.Start(":1323"))
 }
