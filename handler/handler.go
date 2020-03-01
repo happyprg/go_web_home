@@ -14,7 +14,7 @@ type Handler struct {
 }
 
 func (h *Handler) Index(c echo.Context) error {
-	return c.Render(http.StatusOK, "serverTime", fmt.Sprintf("%s", time.Now()))
+	return c.Render(http.StatusOK, "serverTime", fmt.Sprintf("firstPR with %s", time.Now()))
 }
 
 func (h *Handler) Health(c echo.Context) error {
