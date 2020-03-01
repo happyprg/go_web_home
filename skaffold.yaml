@@ -4,7 +4,7 @@ metadata:
   name: go-web-home
 build:
   artifacts:
-    - image: hongsgo/go-web-home
+    - image: hongsgo/gowebhome
 deploy:
   kubectl:
     manifests:
