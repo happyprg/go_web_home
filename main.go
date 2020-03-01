@@ -12,7 +12,7 @@ func main() {
 		return c.String(http.StatusOK, "I'm alive")
 	})
 	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World! 2020-03-01 13:53(KST) integrated with skaffold successfully, it's my fault")
+		return c.String(http.StatusOK, "Hello, World! 2020-03-01 13:53(KST) integrated with skaffold successfully")
 	})
 	e.Logger.Fatal(e.Start(":1323"))
 }
