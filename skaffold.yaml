@@ -3,8 +3,6 @@ kind: Config
 metadata:
   name: go-web-home
 build:
-  local:
-    useDockerCLI: true
   artifacts:
     - image: hongsgo/go-web-home
 deploy:
@@ -12,5 +10,3 @@ deploy:
     manifests:
       - k8s/go-web-home.deploy.yaml
       - k8s/go-web-home.svc.yaml
-      - k8s/dashboard/cluster-role-binding.yaml
-      - k8s/dashboard/dashboard-adminuser.yaml
