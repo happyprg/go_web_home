@@ -17,6 +17,6 @@ func TestHealth(t *testing.T) {
 	h := &Handler{}
 	if assert.NoError(t, h.Health(c)) {
 		assert.Equal(t, http.StatusOK, rec.Code)
-		assert.Equal(t, HealthOkMsg, "Aa")
+		assert.Equal(t, HealthOkMsg, rec.Body.String())
 	}
 }

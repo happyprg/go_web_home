@@ -1,7 +1,8 @@
 # go_web_home
 * How to run in Minikube
 ```bash
-minikube stop && minikube start --cpus 16 --memory 15192
+minikube stop
+minikube start --cpus 16 --memory 15192
 kubectl run gowebhome --image=hongsgo/gowebhome:latest --port=1323 --restart=Always
 minikube service gowebhome --url
 ```
